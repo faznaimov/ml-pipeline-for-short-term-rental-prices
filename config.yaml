@@ -23,7 +23,8 @@ modeling:
   # Maximum number of features to consider for the TFIDF applied to the title of the
   # insertion (the column called "name")
   max_tfidf_features: 5
-  # NOTE: you can put here any parameter that is accepted by the constructor of
+  # export artifact name
+  export_artifact: "model_export"
   # RandomForestRegressor. This is a subsample, but more could be added:
   random_forest:
     n_estimators: 100
@@ -36,20 +37,19 @@ modeling:
     max_features: 0.5
     # DO not change the following
     oob_score: true
-  export_artifact: "model_export"
-  features:
-    numerical:
-      - "host_id"
-      - "latitude"
-      - "longitude"
-      - "minimum_nights"
-      - "number_of_reviews"
-      - "reviews_per_month"
-      - "calculated_host_listings_count"
-      - "availability_365"
-    ordinal_categorical:
-      - "room_type"
-    non_ordinal_categorical:
-      - "neighbourhood_group"
-    nlp:
-      - "name"
+    features:
+      numerical:
+        - "host_id"
+        - "latitude"
+        - "longitude"
+        - "minimum_nights"
+        - "number_of_reviews"
+        - "reviews_per_month"
+        - "calculated_host_listings_count"
+        - "availability_365"
+      ordinal_categorical:
+        - "room_type"
+      non_ordinal_categorical:
+        - "neighbourhood_group"
+      nlp:
+        - "name"
