@@ -26,17 +26,18 @@ modeling:
   # export artifact name
   export_artifact: "model_export"
   # RandomForestRegressor. This is a subsample, but more could be added:
-  random_forest:
-    n_estimators: 100
-    max_depth: 15
-    min_samples_split: 4
-    min_samples_leaf: 3
-    # Here -1 means all available cores
-    n_jobs: -1
-    criterion: mae
-    max_features: 0.5
-    # DO not change the following
-    oob_score: true
+  random_forest_pipeline:
+    random_forest:
+      n_estimators: 100
+      max_depth: 15
+      min_samples_split: 4
+      min_samples_leaf: 3
+      # Here -1 means all available cores
+      n_jobs: -1
+      criterion: mae
+      max_features: 0.5
+      # DO not change the following
+      oob_score: true
     features:
       numerical:
         - "host_id"
@@ -53,3 +54,5 @@ modeling:
         - "neighbourhood_group"
       nlp:
         - "name"
+      date:
+        - "last_review"
