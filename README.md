@@ -15,7 +15,7 @@
 - [License](#license)
 
 ## Project Description
-This project is on building a complete end to end ML pipeline to predict rental prices for airbnb rentals and make it reusable.
+This project is on building a complete end to end ML pipeline to predict rental prices for airbnb rentals using MLFlow and Weights and Biases
 
 ## Files and Data description
 Building a reproducible ML pipeline will require different components which will be needed to be contained in there own environment. The following image shows the pipeline contained within weights and biases. You can check the pipeline at W&B [here](https://wandb.ai/faz-naimov/nyc_airbnb/groups/v1.0.0)
