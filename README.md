@@ -98,7 +98,7 @@ If you want to run the ``download`` and the ``basic_cleaning`` steps, you can si
 ```
 
 You can override any other parameter in the configuration file using the Hydra syntax, by
-providing it as a ``hydra_options`` parameter. For example, say that we want to set the parameter
+providing it as a ``hydra_options`` parameter. You can find all adjustable features in ```congif.yaml```. For example, say that we want to set the parameter
 modeling -> random_forest -> n_estimators to 10 and etl->min_price to 50:
 
 ```bash
@@ -108,7 +108,8 @@ modeling -> random_forest -> n_estimators to 10 and etl->min_price to 50:
 ```
 
 
-**_NOTE_**: Below command will remove *ALL* the environments with a name starting with `mlflow`. Use at your own risk
+
+Below command will remove *ALL* the environments with a name starting with `mlflow`. Use at your own risk
 
 ```
 > for e in $(conda info --envs | grep mlflow | cut -f1 -d" "); do conda uninstall --name $e --all -y;done
