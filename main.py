@@ -5,7 +5,7 @@ import tempfile
 import os
 import wandb
 import hydra
-from omegaconf import DictConfig
+from omegaconf import DictConfig, OmegaConf
 
 _steps = [
     "download",
@@ -40,7 +40,7 @@ def go(config: DictConfig):
             _ = mlflow.run(
                 f"{config['main']['components_repository']}/get_data",
                 "main",
-                version='main',
+                version="main",
                 parameters={
                     "sample": config["etl"]["sample"],
                     "artifact_name": "sample.csv",
@@ -83,7 +83,7 @@ def go(config: DictConfig):
             _ = mlflow.run(
                 f"{config['main']['components_repository']}/train_val_test_split",
                 "main",
-                version='main',
+                version="main",
                 parameters={
                     "input": "clean_sample.csv:latest",
                     "test_size": config["modeling"]["test_size"],
@@ -95,10 +95,10 @@ def go(config: DictConfig):
         if "train_random_forest" in active_steps:
 
             # NOTE: we need to serialize the random forest configuration into JSON
-            rf_config = os.path.abspath("rf_config.json")
+            rf_config = os.path.abspath("rf_config.yml")
             with open(rf_config, "w+") as fp:
-                json.dump(dict(config["modeling"]["random_forest"].items()), fp)  # DO NOT TOUCH
-
+                fp.write(OmegaConf.to_yaml(config["modeling"]["random_forest_pipeline"]))
+                
             # NOTE: use the rf_config we just created as the rf_config parameter for the train_random_forest
             # step
             _ = mlflow.run(
@@ -116,13 +116,16 @@ def go(config: DictConfig):
             )
 
         if "test_regression_model" in active_steps:
-
-            ##################
-            # Implement here #
-            ##################
-
-            pass
-
+            # model test
+            _ = mlflow.run(
+                f"{config['main']['components_repository']}/test_regression_model",
+                "main",
+                version="main",
+                parameters={
+                    "mlflow_model": "model_export:prod",
+                    "test_dataset": "test_data.csv:latest"
+                },
+            )
 
 if __name__ == "__main__":
     go()
