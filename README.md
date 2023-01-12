@@ -20,7 +20,7 @@ This project is on building a complete end to end ML pipeline to predict rental 
 ## Files and data description
 Building a reproducible ML pipeline will require different components which will be needed to be contained in there own environment. The following image shows the pipeline contained within weights and biases. You can check the pipeline at W&B [here](https://wandb.ai/faz-naimov/nyc_airbnb/groups/v1.0.0)
 
-![Pipeline](/images/pipeline_graph_view.PNG)
+![Pipeline](/images/pipeline_graph_view.png)
 
 The pipeline shows each component with input and output artifacts for each component.
 - ```data_get```: Upload the data from local path to W&B
