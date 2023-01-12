@@ -2,22 +2,22 @@
 
 - Project **Build ML Pipeline for Short-Term Rental Prices in NYC** in [ML DevOps Engineer Nanodegree](https://www.udacity.com/course/machine-learning-dev-ops-engineer-nanodegree--nd0821)  program by Udacity.
 
-## Table of contents
+## Table of Contents
 
-- [Introduction](#build-an-ML-Pipeline-for-Short-Term-Rental-Prices-in-NYC)
+- [Introduction](#ml-pipeline-for-short-term-rental-prices-in-nyc)
 - [Project Description](#project-description)
-- [Files and data description](#files-and-data-description)
+- [Files and Data Description](#files-and-data-description)
 - [Usage](#usage)
-  * [Create environment](#create-environment)
-  * [Get API key for Weights and Biases](#get-api-key-for-weights-and-biases)
-  * [Cookie cutter](#cookie-cutter)
-  * [Running the entire pipeline or just a selection of steps](#Running-the-entire-pipeline-or-just-a-selection-of-steps)
+  * [Create Environment](#create-environment)
+  * [Weights and Biases API Key](#weights-and-biases-api-key)
+  * [Cookie Cutter](#cookie-cutter)
+  * [Running Pipeline](#running-pipeline)
 - [License](#license)
 
 ## Project Description
 This project is on building a complete end to end ML pipeline to predict rental prices for airbnb rentals and make it reusable.
 
-## Files and data description
+## Files and Data description
 Building a reproducible ML pipeline will require different components which will be needed to be contained in there own environment. The following image shows the pipeline contained within weights and biases. You can check the pipeline at W&B [here](https://wandb.ai/faz-naimov/nyc_airbnb/groups/v1.0.0)
 
 ![Pipeline](/images/pipeline_graph_view.png)
@@ -33,7 +33,7 @@ The pipeline shows each component with input and output artifacts for each compo
 
 ## Usage
 
-### Create environment
+### Create Environment
 Make sure to have conda installed and ready, then create a new environment using the ``environment.yml``
 file provided in the root of the repository and activate it:
 
@@ -42,7 +42,7 @@ file provided in the root of the repository and activate it:
 > conda activate nyc_airbnb_dev
 ```
 
-### Get API key for Weights and Biases
+### Weights and Biases API Key
 Let's make sure we are logged in to Weights & Biases. Get your API key from W&B by going to 
 [https://wandb.ai/authorize](https://wandb.ai/authorize) and click on the + icon (copy to clipboard), 
 then paste your key into this command:
@@ -56,7 +56,7 @@ You should see a message similar to:
 wandb: Appending key for api.wandb.ai to your netrc file: /home/[your username]/.netrc
 ```
 
-### Cookie cutter
+### Cookie Cutter
 You can use Cookie cutter to create stubs for new pipeline components. It is not required that you use this, but it might save you from a bit of boilerplate code. Just run the cookiecutter and enter the required information, and a new component will be created including the `conda.yml` file, the `MLproject` file as well as the script. You can then modify these as needed, instead of starting from scratch.
 For example:
 
@@ -78,7 +78,7 @@ This will create a step called ``basic_cleaning`` under the directory ``src`` wi
 conda.yml  MLproject  run.py
 ```
 
-### Running the entire pipeline or just a selection of steps
+### Running Pipeline
 In order to run the pipeline when you are developing, you need to be in the root of the starter kit, 
 then you can execute as usual:
 
